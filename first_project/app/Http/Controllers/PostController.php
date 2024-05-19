@@ -9,8 +9,17 @@ class PostController extends Controller
 {
     public function index()
     {
-       $post = Post::find(1);
-       dd($post);
+        $posts = Post::all();
+        dump($posts);
+        foreach($posts as $post)
+        {
+            dump($post->image);
+        }
+        $post = Post::where('likes', 100)->first();
+        dump($post);
+//       $post = Post::where('is_published', 0)->first();
+//       dump($post->title);
+       dd('end');
 
     }
     //
